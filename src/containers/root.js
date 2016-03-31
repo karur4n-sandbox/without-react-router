@@ -26,6 +26,9 @@ export default class RootContainer extends MicroContainer {
   handleDecrement(count) {
     this.setState({ count: this.state.count - count })
   }
+  _onClickHomeLink = (event) => {
+    this.setState({ route: '/' })
+  }
   _onClickAboutLink = (event) => {
     this.setState({ route: '/about' })
   }
@@ -43,8 +46,9 @@ export default class RootContainer extends MicroContainer {
       <div>
         <h1>App</h1>
         <ul>
-          <li onClick={this._onClickAbout}>/About</li>
-          <li onClick={this._onClickCounter}>/Counter</li>
+          <li onClick={this._onClickHomeLink}>/</li>
+          <li onClick={this._onClickAboutLink}>/About</li>
+          <li onClick={this._onClickCounterLink}>/Counter</li>
         </ul>
         <Child dispatch={this.dispatch} {...this.state} />
       </div>
